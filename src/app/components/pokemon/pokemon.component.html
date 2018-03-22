@@ -1,0 +1,19 @@
+<h1>Pokemons</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-2" *ngFor="let pokemon of pokemons">
+      <div class="card mb-2 box-shadow" style="width: 11rem;">
+          <img class="card-img-top" src="{{ pokemon.sprite }}" alt="Card image cap">
+          <div class="card-body">
+              <p class="card-text">{{ pokemon.name | uppercase }}</p>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+
+
+
+<button class="btn btn-primary" (click)="getPokemons()" *ngIf="loading" Disable Button>Get Pokemons</button>
