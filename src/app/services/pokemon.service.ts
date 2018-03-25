@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Pokemon } from '../models/pokemon';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class PokemonService {
@@ -9,7 +11,7 @@ export class PokemonService {
     private http : Http
   ) { }
 
-  getPokemons(limit : number, offset : number){
+  getPokemons(limit : number, offset : number) : Observable<Pokemon[]>{
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`)
       .map(res => {
         return res.json().results.map(item => {
